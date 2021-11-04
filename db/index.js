@@ -260,6 +260,16 @@ async function addTagsToPost(postId, tagList) {
   }
 }
 
+async function getAllTags() {
+  try{
+      await client.query(`
+        SELECT * from tags
+      `)
+  } catch(error){
+    console.error(error)
+  }
+}
+
 async function getPostById(postId) {
   try {
     const { rows: [ post ]  } = await client.query(`
@@ -323,6 +333,7 @@ module.exports = {
   getAllPosts,
   getPostsByUser,
   createTags,
+  getAllTags,
   createPostTag,
   addTagsToPost,
   getPostById,
