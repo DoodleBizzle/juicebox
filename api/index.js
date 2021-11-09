@@ -2,7 +2,6 @@ const express = require('express');
 const apiRouter = express.Router();
 const jwt = require('jsonwebtoken')
 const {getUserById} = require('../db')
-// a comment
 
 apiRouter.use(async (req, res, next) => {
   const prefix = 'Bearer ';
@@ -47,7 +46,7 @@ apiRouter.use('/users', usersRouter);
 const postsRouter = require('./posts');
 apiRouter.use('/posts', postsRouter);
 
-const tagsRouter = require('./posts');
+const tagsRouter = require('./tags');
 apiRouter.use('/tags', tagsRouter )
 
 
