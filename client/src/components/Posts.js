@@ -12,5 +12,5 @@ const Posts = ({ posts, setPosts }) => {
 
   return <div></div>;
 };
-
+// hi comment
 export default Posts;
