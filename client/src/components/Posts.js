@@ -5,12 +5,21 @@ const Posts = ({ posts, setPosts }) => {
  
   useEffect(() => {
     (async () => {
-      const newPosts = getPosts();
+      const newPosts = await getPosts();
       setPosts(newPosts);
     })();
   }, []);
 
-  return <div></div>;
+  return (
+  <div>
+    {posts.map((post)=>{
+      return (
+        <div key={post.id}>
+          
+        </div>
+      )
+    })}
+  </div>);
 };
-// hi comment
+
 export default Posts;
