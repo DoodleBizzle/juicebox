@@ -8,12 +8,12 @@ export async function registerUser (username, password, name, location){
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user: {
+       
           username,
           password,
           name,
           location
-        }
+        
       })
     })
     const result = await response.json();

@@ -10,3 +10,13 @@ export async function getPosts(){
     console.error(error);
   }
 }
+
+export async function getSinglePost(postId){
+  try{
+    const response = await fetch(`/api/posts/${postId}`)
+    const result = await response.json();
+    return result
+  } catch(error){
+    console.error(error);
+  }
+}

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Nav from "./Nav";
 import Posts from "./Posts";
+import Post from "./Post";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+
 
 const App = () =>{
   const [posts, setPosts] = useState([]);
@@ -23,6 +25,9 @@ const App = () =>{
           </Route>
           <Route path="/register">
             <RegisterForm setToken={setToken} />
+          </Route>
+          <Route path="/posts/:postId" >
+            <Post/>
           </Route>
         </Switch>
       </Router>

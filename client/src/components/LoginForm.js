@@ -9,8 +9,9 @@ const LoginForm = ({setToken, setIsLoggedIn}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const token = await userLogin(username, password);
-    localStorage.setItem('token', token.token);
+    const {token} = await userLogin(username, password);
+    localStorage.setItem('token', token);
+    setToken(token.token)
     setIsLoggedIn(true)
     history.push("/")
   }

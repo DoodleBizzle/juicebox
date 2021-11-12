@@ -50,6 +50,18 @@ postsRouter.post('/', requireUser, async (req, res, next) => {
   }
 });
 
+postsRouter.get('/:postId', async (req, res, next) =>{
+  const {postId} = req.params;
+
+  try{
+    const post = await getPostById(postId);
+    res.send(post);
+
+  } catch({name, message}) {
+    next({name, message})
+  }
+})
+
 postsRouter.patch('/:postId', requireUser, async (req, res, next) => {
   const { postId } = req.params;
   const { title, content, tags } = req.body;

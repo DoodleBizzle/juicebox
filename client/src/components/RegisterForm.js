@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router";
+import { registerUser } from "../api/users";
 
 const RegisterForm = ({setToken}) =>{
   const [username, setUsername] = useState("");
@@ -10,8 +11,17 @@ const RegisterForm = ({setToken}) =>{
   const [location, setLocation] = useState("");
   const history = useHistory();
 
-  const handleSubmit = () =>{
-    
+  const handleSubmit = async (event) =>{
+    event.preventDefault();
+    if(password === confirmPassword){
+      setDoPasswordsMatch(true);
+      const {token} = await registerUser(username, password, name, location)
+      localStorage.setItem('token', token)
+      setToken(token.token)
+      history.push('/')
+    } else {
+      setDoPasswordsMatch(false)
+    }
   }
 
   return(
