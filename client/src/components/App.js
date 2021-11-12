@@ -3,10 +3,12 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Nav from "./Nav";
 import Posts from "./Posts";
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const App = () =>{
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState("")
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   return(
     <main id="main" className="App" >
@@ -17,7 +19,10 @@ const App = () =>{
             <Posts posts={posts} setPosts={setPosts}/>
           </Route>
           <Route path="/login" >
-            <LoginForm setToken={setToken} />
+            <LoginForm setToken={setToken} setIsLoggedIn={setIsLoggedIn} />
+          </Route>
+          <Route path="/register">
+            <RegisterForm setToken={setToken} />
           </Route>
         </Switch>
       </Router>

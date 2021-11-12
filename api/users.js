@@ -2,6 +2,7 @@ const express = require('express');
 const usersRouter = express.Router();
 const { getAllUsers, getUserByUsername, createUser} = require('../db')
 const jwt = require('jsonwebtoken');
+const {requireUser} = require('./utils')
 
 usersRouter.use((req, res, next) => {
   console.log("A request is being made to /users");
@@ -56,7 +57,7 @@ usersRouter.post('/register', async (req, res, next) => {
 
 
 usersRouter.post('/login', async (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body.user;
 
   // request must have both
   if (!username || !password) {
@@ -85,5 +86,11 @@ usersRouter.post('/login', async (req, res, next) => {
   }
 });
 
+usersRouter.get('/authenticate', requireUser, (req, res, next) => {
+  res.send({
+    success: true,
+    user: req.user
+  });
+});
 
 module.exports = usersRouter;

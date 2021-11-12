@@ -51,7 +51,8 @@ apiRouter.use('/tags', tagsRouter )
 
 
 apiRouter.use((error, req, res, next) => {
-  res.send({
+  console.log(error);
+  res.status(500).send({
     name: error.name,
     message: error.message
   });
