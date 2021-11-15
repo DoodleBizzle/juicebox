@@ -12,18 +12,20 @@ const Posts = ({ posts, setPosts }) => {
   }, []);
 
   return (
-  <div>
+  <>
     {posts.map((post)=>{
       return (
         <div key={post.id}>
           <h3>{post.author.username}</h3>
-          <h4>{post.title}</h4>
+          <Link className="title" to={`/posts/${post.id}`}>
+            <h4>{post.title}</h4>
+          </Link>
           <p>{post.content}</p>
           {post.tags.map((tag)=>{return <Link className="tag" >{tag.name}</Link>})}
         </div>
       )
     })}
-  </div>);
+  </>);
 };
 
 export default Posts;

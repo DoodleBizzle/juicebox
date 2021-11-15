@@ -5,6 +5,7 @@ import Posts from "./Posts";
 import Post from "./Post";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import CreatePost from "./CreatePost";
 
 
 const App = () =>{
@@ -28,6 +29,9 @@ const App = () =>{
           </Route>
           <Route path="/posts/:postId" >
             <Post/>
+          </Route>
+          <Route path="/createpost">
+            <CreatePost/>
           </Route>
         </Switch>
       </Router>

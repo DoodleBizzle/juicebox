@@ -20,3 +20,22 @@ export async function getSinglePost(postId){
     console.error(error);
   }
 }
+
+export async function makePost(token, title, content, tags){
+  try{
+    const response = await fetch(`/api/posts/`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        title,
+        content,
+        tags
+      })
+    })
+  }catch(error){
+    console.error(error)
+  }
+}
