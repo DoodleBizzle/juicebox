@@ -1,14 +1,21 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { makePost } from "../api/posts";
+import { useHistory } from "react-router";
 
-const CreatePost = () => {
+const CreatePost = ({token}) => {
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
   const [tags, setTags] = useState();
+  const history = useHistory();
 
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await makePost(token, title, content, tags);
+    history.push('/')
+  }
+  
   return(
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
       type="text"
       minLength="1"

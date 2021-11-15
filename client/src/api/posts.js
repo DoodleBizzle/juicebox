@@ -23,7 +23,7 @@ export async function getSinglePost(postId){
 
 export async function makePost(token, title, content, tags){
   try{
-    const response = await fetch(`/api/posts/`, {
+    const response = await fetch(`/api/posts`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

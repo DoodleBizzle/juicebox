@@ -11,7 +11,7 @@ const LoginForm = ({setToken, setIsLoggedIn}) => {
     event.preventDefault();
     const {token} = await userLogin(username, password);
     localStorage.setItem('token', token);
-    setToken(token.token)
+    setToken(token)
     setIsLoggedIn(true)
     history.push("/")
   }

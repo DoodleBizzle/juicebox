@@ -17,7 +17,7 @@ const RegisterForm = ({setToken}) =>{
       setDoPasswordsMatch(true);
       const {token} = await registerUser(username, password, name, location)
       localStorage.setItem('token', token)
-      setToken(token.token)
+      setToken(token)
       history.push('/')
     } else {
       setDoPasswordsMatch(false)

@@ -6,6 +6,7 @@ import Post from "./Post";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import CreatePost from "./CreatePost";
+import EditPost from "./EditPost";
 
 
 const App = () =>{
@@ -27,11 +28,14 @@ const App = () =>{
           <Route path="/register">
             <RegisterForm setToken={setToken} />
           </Route>
-          <Route path="/posts/:postId" >
+          <Route exact path="/posts/:postId" >
             <Post/>
           </Route>
           <Route path="/createpost">
-            <CreatePost/>
+            <CreatePost token={token} />
+          </Route>
+          <Route path="/posts/:postId/editpost">
+            <EditPost/>
           </Route>
         </Switch>
       </Router>
