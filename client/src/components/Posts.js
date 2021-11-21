@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPosts } from "../api/posts";
 
-const Posts = ({ posts, setPosts }) => {
- 
+const Posts = ({posts, setPosts}) => {
+  
   useEffect(() => {
     (async () => {
       const newPosts = await getPosts();

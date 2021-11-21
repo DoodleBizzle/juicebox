@@ -25,6 +25,7 @@ const Post = () => {
       <h4>{post.title}</h4>
       <p>{post.content}</p>
       {post.tags.map((tag)=>{return <Link className="tag" >{tag.name}</Link>})}
+      
     </div>
     }
     </>

@@ -19,9 +19,13 @@ server.use((req, res, next) => {
 const apiRouter = require('./api');
 server.use('/api', apiRouter);
 
+server.use(express.static(path.join(__dirname, 'client', 'build')));
+server.get('*', (req, res, next) => res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')));
+
 const {client} = require('./db');
 client.connect();
 
 server.listen(PORT, () => {
   console.log('The server is up on port', PORT)
 });
+

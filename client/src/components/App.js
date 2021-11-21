@@ -10,7 +10,7 @@ import EditPost from "./EditPost";
 
 
 const App = () =>{
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
   const [token, setToken] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
@@ -20,7 +20,7 @@ const App = () =>{
         <Nav/>
         <Switch>
           <Route exact path="/">
-            <Posts posts={posts} setPosts={setPosts}/>
+            <Posts posts={posts} setPosts={setPosts} />
           </Route>
           <Route path="/login" >
             <LoginForm setToken={setToken} setIsLoggedIn={setIsLoggedIn} />
